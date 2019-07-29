@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import sys
+
+def usage(invocation):
+    print("Usage: " + invocation + " REM_VALUE\n")
+
+if len(sys.argv) < 2:
+    usage(sys.argv[0])
+    sys.exit()
+
+rem = 0
+
+try:
+    rem = float(sys.argv[1])
+except ValueError:
+    usage(sys.argv[0])
+    sys.exit()
+
+px  = int(rem * 16.0)
+pt  = rem * 12
+rel = rem * 100
+
+print(str(rem) + " rem = " + str(px)  + " px")
+print(str(rem) + " rem = " + str(pt)  + " pt")
+print(str(rem) + " rem = " + str(rel) + " %")
+
+sys.exit()

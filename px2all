@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+
+import sys
+
+def usage(invocation):
+    print("Usage: " + invocation + " PIXEL_VALUE\n")
+
+if len(sys.argv) < 2:
+    usage(sys.argv[0])
+    sys.exit()
+
+px = 0
+
+try:
+    px = int(sys.argv[1])
+except ValueError:
+    usage(sys.argv[0])
+    sys.exit()
+
+rem = px / 16.0
+pt  = px * 0.75
+rel = px * 6.25
+
+print(str(px) + " px = " + str(rem) + " rem")
+print(str(px) + " px = " + str(pt)  + " pt")
+print(str(px) + " px = " + str(rel) + " %")
+
+sys.exit()
