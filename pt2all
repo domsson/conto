@@ -19,7 +19,7 @@ if len(sys.argv) < 2:
 pt = 0
 
 try:
-    pt = int(sys.argv[1])
+    pt = float(sys.argv[1])
 except ValueError:
     usage(sys.argv[0])
     sys.exit()

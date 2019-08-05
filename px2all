@@ -19,7 +19,7 @@ if len(sys.argv) < 2:
 px = 0
 
 try:
-    px = int(sys.argv[1])
+    px = float(sys.argv[1])
 except ValueError:
     usage(sys.argv[0])
     sys.exit()
