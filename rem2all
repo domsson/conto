@@ -5,6 +5,13 @@ import sys
 def usage(invocation):
     print("Usage: " + invocation + " REM_VALUE\n")
 
+def print_result(from_val, from_unit, to_val, to_unit):
+    rounded = round(to_val, 3)
+    if to_val == rounded:
+        print(str(from_val) + " " + from_unit + " = " + str(to_val) + " " + to_unit)
+    else:
+        print(str(from_val) + " " + from_unit + " ≈ " + str(rounded) + " " + to_unit)
+
 if len(sys.argv) < 2:
     usage(sys.argv[0])
     sys.exit()
@@ -17,12 +24,12 @@ except ValueError:
     usage(sys.argv[0])
     sys.exit()
 
-px  = int(rem * 16.0)
+px  = rem * 16.0
 pt  = rem * 12
 rel = rem * 100
 
-print(str(rem) + " rem = " + str(px)  + " px")
-print(str(rem) + " rem = " + str(pt)  + " pt")
-print(str(rem) + " rem = " + str(rel) + " %")
+print_result(rem, "rem", px,  "px")
+print_result(rem, "rem", pt,  "pt")
+print_result(rem, "rem", rel, "%")
 
 sys.exit()

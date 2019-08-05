@@ -5,6 +5,13 @@ import sys
 def usage(invocation):
     print("Usage: " + invocation + " PIXEL_VALUE\n")
 
+def print_result(from_val, from_unit, to_val, to_unit):
+    rounded = round(to_val, 3)
+    if to_val == rounded:
+        print(str(from_val) + " " + from_unit + " = " + str(to_val) + " " + to_unit)
+    else:
+        print(str(from_val) + " " + from_unit + " ≈ " + str(rounded) + " " + to_unit)
+
 if len(sys.argv) < 2:
     usage(sys.argv[0])
     sys.exit()
@@ -21,8 +28,8 @@ rem = px / 16.0
 pt  = px * 0.75
 rel = px * 6.25
 
-print(str(px) + " px = " + str(rem) + " rem")
-print(str(px) + " px = " + str(pt)  + " pt")
-print(str(px) + " px = " + str(rel) + " %")
+print_result(px, "px", rem, "rem")
+print_result(px, "px", pt,  "pt")
+print_result(px, "px", rel, "%")
 
 sys.exit()
