@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+
+import sys
+
+def usage(invocation):
+    print("Usage: " + invocation + " POINT_VALUE\n")
+
+def print_result(from_val, from_unit, to_val, to_unit):
+    rounded = round(to_val, 3)
+    if to_val == rounded:
+        print(str(from_val) + " " + from_unit + " = " + str(to_val) + " " + to_unit)
+    else:
+        print(str(from_val) + " " + from_unit + " ≈ " + str(rounded) + " " + to_unit)
+
+if len(sys.argv) < 2:
+    usage(sys.argv[0])
+    sys.exit()
+
+pt = 0
+
+try:
+    pt = int(sys.argv[1])
+except ValueError:
+    usage(sys.argv[0])
+    sys.exit()
+
+rem = pt / 12.0
+px  = rem * 16
+rel = px * 6.25
+
+rem_round = round(rem, 3)
+px_round  = round(px,  3)
+rel_round = round(rel, 3)
+
+print_result(pt, "pt", rem, "rem")
+print_result(pt, "pt", px,  "px")
+print_result(pt, "pt", rel, "%")
+
+sys.exit()
